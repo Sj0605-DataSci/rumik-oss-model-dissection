@@ -95,6 +95,11 @@ Aggregate throughput scales up to **~1,231 tok/s at 48 concurrent requests** —
 
 The lesson that generalizes: **quantizing a model's weight format and getting a speedup from that format are two separate problems.** The first is a data transformation; the second needs a kernel that runs on the actual hardware unit the format was designed for. On this generation of NVIDIA hardware, that kernel currently exists in two places — TensorRT-LLM and vLLM — and nowhere else.
 
+## Other ecosystems checked: Ollama and Unsloth
+
+- **Ollama**: no path to add this model. Ollama has no text-to-speech / audio-token-output support at all yet — this is tracked as an open feature request ([ollama/ollama#11021](https://github.com/ollama/ollama/issues/11021)), not something implemented today. There is no runtime in Ollama that can decode audio codec tokens, regardless of the model. Nothing to add until Ollama itself supports this category of model.
+- **Unsloth**: already works, no changes needed. Unsloth advertises generic support for any `transformers`-compatible model via `trust_remote_code=True`. Verified directly (`test_unsloth.py`): `FastModel.from_pretrained("./rumik-oss-1", trust_remote_code=True)` loads the model correctly, and `FastModel.get_peft_model(...)` wraps it with LoRA (15.1M trainable / 3.4B total params) with zero code changes on either side. There's no PR to write here — it already works exactly as documented.
+
 ## What's in this repository
 
 - `ARCHITECTURE_NOTES.md` — full architecture dissection, verified against the released weights
@@ -103,5 +108,6 @@ The lesson that generalizes: **quantizing a model's weight format and getting a 
 - `infer.py`, `quantize_nvfp4.py`, `quantize_for_vllm.py` — the scripts behind each step
 - `vllm-plugin/` — the vLLM model plugin (`tinyaya_vllm.py`), its packaging, and `PR_NOTES.md` on what contributing this back to vLLM would involve
 - `FULL_DUPLEX_DESIGN.md` — a separate design sketch for extending this model to full-duplex (simultaneous listening and speaking), not implemented
+- `test_unsloth.py` — the Unsloth compatibility check described above
 
 All benchmarks were run on a single DGX Spark; numbers will differ on other hardware.
