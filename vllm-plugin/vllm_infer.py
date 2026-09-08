@@ -32,6 +32,14 @@ def main():
     ap.add_argument("--out-dir", default="/models/outputs_vllm")
     ap.add_argument("--enforce-eager", action="store_true")
     ap.add_argument("--batch", action="store_true", help="submit all prompts as one llm.generate() call")
+    ap.add_argument("--concurrency-levels", type=str, default=None,
+                     help="comma-separated list of repeat counts to test in one engine load, e.g. "
+                          "'1,4,8,16' -- each repeat count submits repeat*len(PROMPTS) requests "
+                          "together in one llm.generate() call and reports aggregate tok/s. "
+                          "Runs sequentially within the same process to amortize the one-time "
+                          "engine startup (CUDA graph capture etc.) across all levels.")
+    ap.add_argument("--save-wavs", action="store_true",
+                     help="decode + save wav files (skip for large concurrency runs, just want tok/s)")
     args = ap.parse_args()
 
     from vllm import LLM, SamplingParams
@@ -118,7 +126,34 @@ def main():
         stop_token_ids=[audio_end_id],
     )
 
-    if args.batch:
+    if args.concurrency_levels:
+        levels = [int(x) for x in args.concurrency_levels.split(",")]
+        print(f"\n[concurrency sweep] testing repeat levels {levels} "
+              f"({[lvl * len(PROMPTS) for lvl in levels]} concurrent requests)", flush=True)
+        results = []
+        for lvl in levels:
+            expanded = PROMPTS * lvl
+            prompts = [f"<text>{speaker}: {text}<audio>" for speaker, text in expanded]
+            n = len(prompts)
+            t0 = time.perf_counter()
+            outputs = llm.generate(prompts, params)
+            wall_s = time.perf_counter() - t0
+
+            total_tokens = sum(len(out.outputs[0].token_ids) for out in outputs)
+            agg_tok_s = total_tokens / wall_s if wall_s > 0 else float("nan")
+            results.append((n, wall_s, total_tokens, agg_tok_s))
+            print(f"[concurrency={n}] wall_s={wall_s:.2f} total_tokens={total_tokens} "
+                  f"aggregate_tok/s={agg_tok_s:.2f}", flush=True)
+
+            if args.save_wavs and lvl == levels[0]:
+                for i, ((speaker, _), out) in enumerate(zip(expanded, outputs)):
+                    process(i, speaker, out.outputs[0].token_ids, wall_s)
+
+        print("\n[concurrency sweep] summary:", flush=True)
+        print(f"{'concurrency':>12} {'wall_s':>10} {'total_tok':>10} {'agg_tok/s':>12}", flush=True)
+        for n, wall_s, total_tokens, agg_tok_s in results:
+            print(f"{n:>12} {wall_s:>10.2f} {total_tokens:>10} {agg_tok_s:>12.2f}", flush=True)
+    elif args.batch:
         prompts = [f"<text>{speaker}: {text}<audio>" for speaker, text in PROMPTS]
         t0 = time.perf_counter()
         outputs = llm.generate(prompts, params)

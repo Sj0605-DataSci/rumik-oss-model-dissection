@@ -71,6 +71,19 @@ Result:
 
 **~26 tok/s → ~60 tok/s (2.3x), RTF 3.7–3.9x → 1.6–1.7x.** Generated audio lengths closely matched the original BF16 run (durations within a few percent), confirming the plugin reproduces the reference model's behavior correctly rather than just running fast. Engine startup (CUDA graph capture + compilation) took about 98 seconds — a one-time cost, negligible for a long-running server, but worth knowing about for a single request like this.
 
+### Step 4 — concurrent requests (vLLM's actual design target)
+
+Everything above is a single-request, single-stream comparison. vLLM's real purpose is serving many requests at once via continuous batching, so we swept concurrency by submitting multiple requests together in one call and measuring aggregate throughput (total tokens generated across all of them, divided by wall time):
+
+| Concurrent requests | Wall time | Total tokens | Aggregate throughput |
+|---|---|---|---|
+| 3 | 15.77s | 1,795 | 113.8 tok/s |
+| 12 | 17.56s | 7,060 | 402.1 tok/s |
+| 24 | 20.24s | 14,040 | 693.7 tok/s |
+| 48 | 23.31s | 28,696 | 1,231.1 tok/s |
+
+Aggregate throughput scales up to **~1,231 tok/s at 48 concurrent requests** — about 20x the single-request NVFP4 throughput (~60 tok/s) and ~47x the BF16 baseline (~26 tok/s), while wall time only grows from 15.8s to 23.3s (a 1.5x increase for 16x more requests). This is the practical payoff of the fused NVFP4 kernel: because decode is bandwidth-bound, batching many requests together lets the same weight-read serve many sequences at once, so total serving capacity scales far faster than single-request latency does. Individual requests do take somewhat longer to finish under heavier concurrent load (that's the cost of sharing the GPU), but for a real deployment serving multiple users, aggregate throughput — not single-stream latency — is the number that determines how many people you can serve at once.
+
 ## Summary
 
 | Stage | Throughput | RTF | Outcome |

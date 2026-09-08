@@ -151,6 +151,45 @@ in-tree would involve, and why we're not opening that PR yet (checkpoint
 format still experimental, `min_new_tokens` floor dropped as a known
 simplification, and Rumik hasn't been asked whether they want this).
 
+## Attempt 4: concurrent request throughput (vLLM's actual design target)
+
+All numbers above are single-request, sequential measurements. vLLM's
+purpose is continuous batching across many concurrent requests, so we ran
+`vllm_infer.py --concurrency-levels 1,4,8,16` (each level submits
+`level * len(PROMPTS)` requests together in one `llm.generate()` call,
+inside the same engine load to amortize the one-time CUDA-graph-capture
+startup cost across all levels):
+
+```
+[concurrency=3]  wall_s=15.77  total_tokens=1795   aggregate_tok/s=113.80
+[concurrency=12] wall_s=17.56  total_tokens=7060   aggregate_tok/s=402.06
+[concurrency=24] wall_s=20.24  total_tokens=14040  aggregate_tok/s=693.65
+[concurrency=48] wall_s=23.31  total_tokens=28696  aggregate_tok/s=1231.13
+```
+
+| Concurrent requests | Wall time | Total tokens | Aggregate tok/s | vs. single-request NVFP4 (~60 tok/s) | vs. BF16 baseline (~26 tok/s) |
+|---|---|---|---|---|---|
+| 3 | 15.77s | 1,795 | 113.8 | 1.9x | 4.4x |
+| 12 | 17.56s | 7,060 | 402.1 | 6.7x | 15.5x |
+| 24 | 20.24s | 14,040 | 693.7 | 11.6x | 26.7x |
+| 48 | 23.31s | 28,696 | 1,231.1 | 20.5x | 47.4x |
+
+Going from 3 to 48 concurrent requests (16x more load) increases aggregate
+throughput ~10.8x while wall time only grows ~1.5x (15.77s → 23.31s) — this
+is continuous batching doing its job: since decode is bandwidth-bound (see
+Step 0), reading the model's weights once serves many sequences' next-token
+predictions at once, so total system throughput scales much faster than
+wall time does. The tradeoff is per-request latency: any individual
+request among the 48 concurrent ones takes longer to finish than it would
+running alone (23.3s of shared GPU time vs. the same request finishing in
+a few seconds solo) — expected, and the right tradeoff for a server handling
+multiple simultaneous users rather than optimizing for one user's
+worst-case wait.
+
+Not yet tested: concurrency levels beyond 48 (to find where this scaling
+curve actually saturates on this GPU), and mixed-length/realistic traffic
+patterns rather than the same 3 prompts repeated.
+
 ## Reproduce
 ```
 cd rumik-oss-model-dissection
@@ -168,6 +207,13 @@ docker run --rm --gpus all \
   -v $PWD/outputs_vllm:/models/outputs_vllm \
   --entrypoint bash vllm/vllm-openai:v0.20.0 \
   -c "pip install -q -e /workspace/vllm-plugin && VLLM_PLUGINS=register_tinyaya python3 /workspace/vllm-plugin/vllm_infer.py"
+
+# concurrency sweep (same mounts as above)
+docker run --rm --gpus all \
+  -v $PWD/rumik-oss-1-nvfp4-vllm:/models/rumik-oss-1-nvfp4-vllm:ro \
+  -v $PWD/vllm-plugin:/workspace/vllm-plugin \
+  --entrypoint bash vllm/vllm-openai:v0.20.0 \
+  -c "pip install -q -e /workspace/vllm-plugin && VLLM_PLUGINS=register_tinyaya python3 -u /workspace/vllm-plugin/vllm_infer.py --concurrency-levels 1,4,8,16"
 ```
 Outputs land in `./outputs/sample_{0,1,2}.wav` (BF16) and
 `./outputs_vllm/vllm_sample_{0,1,2}.wav` (NVFP4/vLLM).
