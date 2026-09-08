@@ -1,0 +1,12 @@
+.venv/
+.hf_modules_cache/
+rumik-oss-1/
+rumik-oss-1-base/
+rumik-oss-1-nvfp4/
+rumik-oss-1-nvfp4-vllm/
+outputs_compiled/
+outputs_static/
+vllm-plugin/commandr_reference.py
+__pycache__/
+*.pyc
+*.egg-info/

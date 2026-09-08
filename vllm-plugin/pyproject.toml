@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinyaya-vllm-plugin"
+version = "0.1.0"
+description = "vLLM out-of-tree model plugin for rumik-ai/rumik-oss-1 (TinyAya / Cohere2 + audio-token decode)"
+
+[tool.setuptools]
+py-modules = ["tinyaya_vllm", "register"]
+
+[project.entry-points."vllm.general_plugins"]
+register_tinyaya = "register:register"
