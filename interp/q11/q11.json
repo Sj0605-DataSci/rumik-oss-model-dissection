@@ -1,0 +1,328 @@
+{
+  "pairs": [
+    {
+      "text": 0,
+      "A": "speaker=Aisha",
+      "B": "tone=excited",
+      "intact": {
+        "base": 1.0,
+        "speaker=Aisha": 1.0,
+        "tone=excited": 1.0,
+        "speaker=Aisha+tone=excited": 0.0
+      },
+      "speaker=Aisha": {
+        "base": 0.004307785687728912,
+        "speaker=Aisha": 0.8579718602066558,
+        "tone=excited": 0.02557386291841487,
+        "speaker=Aisha+tone=excited": NaN,
+        "interaction": NaN,
+        "retention": NaN
+      },
+      "tone=excited": {
+        "base": 0.023782788135917433,
+        "speaker=Aisha": 0.3003750218215964,
+        "tone=excited": 0.9832390990559493,
+        "speaker=Aisha+tone=excited": NaN,
+        "interaction": NaN,
+        "retention": NaN
+      }
+    },
+    {
+      "text": 0,
+      "A": "speaker=Aisha",
+      "B": "tone=sad",
+      "intact": {
+        "base": 1.0,
+        "speaker=Aisha": 1.0,
+        "tone=sad": 1.0,
+        "speaker=Aisha+tone=sad": 1.0
+      },
+      "speaker=Aisha": {
+        "base": 0.004307785687728912,
+        "speaker=Aisha": 0.8579718602066558,
+        "tone=sad": 0.013457521904392217,
+        "speaker=Aisha+tone=sad": 0.7770070255945085,
+        "interaction": -0.09011457082881062,
+        "retention": 0.9051560947346013
+      },
+      "tone=sad": {
+        "base": 0.05277924734779028,
+        "speaker=Aisha": 0.05958899404066582,
+        "tone=sad": 0.8061115859409399,
+        "speaker=Aisha+tone=sad": 0.355122026184679,
+        "interaction": -0.45779930644913647,
+        "retention": 0.4013405018580707
+      }
+    },
+    {
+      "text": 0,
+      "A": "speaker=Zoya",
+      "B": "pace=fast",
+      "intact": {
+        "base": 1.0,
+        "speaker=Zoya": 1.0,
+        "pace=fast": 1.0,
+        "speaker=Zoya+pace=fast": 1.0
+      },
+      "speaker=Zoya": {
+        "base": 0.008837163000381794,
+        "speaker=Zoya": 0.6409059638376606,
+        "pace=fast": 0.42403905563546435,
+        "speaker=Zoya+pace=fast": 0.9853544751269144,
+        "interaction": -0.07075338134582876,
+        "retention": 1.544954142386043
+      },
+      "pace=fast": {
+        "base": 1.0107064536340853,
+        "speaker=Zoya": 1.0858883647798743,
+        "pace=fast": 1.1943468908122306,
+        "speaker=Zoya+pace=fast": 1.0649208247892459,
+        "interaction": -0.20460797716877366,
+        "retention": 0.2952202248493261
+      }
+    },
+    {
+      "text": 0,
+      "A": "speaker=Zoya",
+      "B": "tone=happy",
+      "intact": {
+        "base": 1.0,
+        "speaker=Zoya": 1.0,
+        "tone=happy": 1.0,
+        "speaker=Zoya+tone=happy": 0.5
+      },
+      "speaker=Zoya": {
+        "base": 0.008837163000381794,
+        "speaker=Zoya": 0.6409059638376606,
+        "tone=happy": 0.014066052513624114,
+        "speaker=Zoya+tone=happy": 0.11261549329572844,
+        "interaction": -0.5335193600551745,
+        "retention": 0.16418834493630316
+      },
+      "tone=happy": {
+        "base": 0.07720050012002873,
+        "speaker=Zoya": 0.1235049308311379,
+        "tone=happy": 0.6859690332678726,
+        "speaker=Zoya+tone=happy": 0.6370185990409192,
+        "interaction": -0.09525486493806261,
+        "retention": 0.9195910570905519
+      }
+    },
+    {
+      "text": 0,
+      "A": "tone=excited",
+      "B": "tone=sad",
+      "intact": {
+        "base": 1.0,
+        "tone=excited": 1.0,
+        "tone=sad": 1.0,
+        "tone=excited+tone=sad": 1.0
+      },
+      "tone=excited": {
+        "base": 0.023782788135917433,
+        "tone=excited": 0.9832390990559493,
+        "tone=sad": 0.013443623309937716,
+        "tone=excited+tone=sad": 0.8210311111195477,
+        "interaction": -0.15186882311042182,
+        "retention": 0.830937598627228
+      },
+      "tone=sad": {
+        "base": 0.05277924734779028,
+        "tone=excited": 0.004491538255131264,
+        "tone=sad": 0.8061115859409399,
+        "tone=excited+tone=sad": 0.08795750030845777,
+        "interaction": -0.6698663765398232,
+        "retention": 0.04669685762642684
+      }
+    },
+    {
+      "text": 0,
+      "A": "pace=fast",
+      "B": "tone=sad",
+      "intact": {
+        "base": 1.0,
+        "pace=fast": 1.0,
+        "tone=sad": 1.0,
+        "pace=fast+tone=sad": 1.0
+      },
+      "pace=fast": {
+        "base": 1.0107064536340853,
+        "pace=fast": 1.1943468908122306,
+        "tone=sad": 0.7282318376068375,
+        "pace=fast+tone=sad": 1.2505411255411254,
+        "interaction": 0.3386688507561426,
+        "retention": 1.3060014209963033
+      },
+      "tone=sad": {
+        "base": 0.05277924734779028,
+        "pace=fast": 0.054334200345021184,
+        "tone=sad": 0.8061115859409399,
+        "pace=fast+tone=sad": 0.04119672475588191,
+        "interaction": -0.7664698141822889,
+        "retention": -0.01537505029126821
+      }
+    },
+    {
+      "text": 1,
+      "A": "speaker=Aisha",
+      "B": "tone=excited",
+      "intact": {
+        "base": 1.0,
+        "speaker=Aisha": 1.0,
+        "tone=excited": 1.0,
+        "speaker=Aisha+tone=excited": 0.0
+      },
+      "speaker=Aisha": {
+        "base": 0.004820452314623096,
+        "speaker=Aisha": 0.8560357016667325,
+        "tone=excited": 0.02509867665298684,
+        "speaker=Aisha+tone=excited": NaN,
+        "interaction": NaN,
+        "retention": NaN
+      },
+      "tone=excited": {
+        "base": 0.22780126534992667,
+        "speaker=Aisha": 0.14094257340534458,
+        "tone=excited": 0.9678406006326838,
+        "speaker=Aisha+tone=excited": NaN,
+        "interaction": NaN,
+        "retention": NaN
+      }
+    },
+    {
+      "text": 1,
+      "A": "speaker=Aisha",
+      "B": "tone=sad",
+      "intact": {
+        "base": 1.0,
+        "speaker=Aisha": 1.0,
+        "tone=sad": 1.0,
+        "speaker=Aisha+tone=sad": 0.75
+      },
+      "speaker=Aisha": {
+        "base": 0.004820452314623096,
+        "speaker=Aisha": 0.8560357016667325,
+        "tone=sad": 0.010457757796023627,
+        "speaker=Aisha+tone=sad": 0.6229166340740481,
+        "interaction": -0.23875637307408493,
+        "retention": 0.7261338212982912
+      },
+      "tone=sad": {
+        "base": 0.3383216409923089,
+        "speaker=Aisha": 0.2643855119166046,
+        "tone=sad": 0.9599717432903186,
+        "speaker=Aisha+tone=sad": 0.9612695847147333,
+        "interaction": 0.07523397050011893,
+        "retention": 1.0020877362033997
+      }
+    },
+    {
+      "text": 1,
+      "A": "speaker=Zoya",
+      "B": "pace=fast",
+      "intact": {
+        "base": 1.0,
+        "speaker=Zoya": 1.0,
+        "pace=fast": 1.0,
+        "speaker=Zoya+pace=fast": 1.0
+      },
+      "speaker=Zoya": {
+        "base": 0.006065844238838258,
+        "speaker=Zoya": 0.7811060192810783,
+        "pace=fast": 0.17367965908513544,
+        "speaker=Zoya+pace=fast": 0.8907850706644158,
+        "interaction": -0.05793476346295963,
+        "retention": 1.1415140207117134
+      },
+      "pace=fast": {
+        "base": 1.0029524840239126,
+        "speaker=Zoya": 1.0036185432924563,
+        "pace=fast": 1.3655535130718954,
+        "speaker=Zoya+pace=fast": 1.2862618634677456,
+        "interaction": -0.07995770887269349,
+        "retention": 0.7813253596871145
+      }
+    },
+    {
+      "text": 1,
+      "A": "speaker=Zoya",
+      "B": "tone=happy",
+      "intact": {
+        "base": 1.0,
+        "speaker=Zoya": 1.0,
+        "tone=happy": 1.0,
+        "speaker=Zoya+tone=happy": 0.75
+      },
+      "speaker=Zoya": {
+        "base": 0.006065844238838258,
+        "speaker=Zoya": 0.7811060192810783,
+        "tone=happy": 0.04066952252183083,
+        "speaker=Zoya+tone=happy": 0.3619659055393849,
+        "interaction": -0.4537437920246859,
+        "retention": 0.45920208108070004
+      },
+      "tone=happy": {
+        "base": 0.07077470687962022,
+        "speaker=Zoya": 0.09642835975352128,
+        "tone=happy": 0.3683709036575772,
+        "speaker=Zoya+tone=happy": 0.2204701805806301,
+        "interaction": -0.17355437595084816,
+        "retention": 0.5030154125682627
+      }
+    },
+    {
+      "text": 1,
+      "A": "tone=excited",
+      "B": "tone=sad",
+      "intact": {
+        "base": 1.0,
+        "tone=excited": 1.0,
+        "tone=sad": 1.0,
+        "tone=excited+tone=sad": 1.0
+      },
+      "tone=excited": {
+        "base": 0.22780126534992667,
+        "tone=excited": 0.9678406006326838,
+        "tone=sad": 0.003263486612998357,
+        "tone=excited+tone=sad": 0.6579396456187822,
+        "interaction": -0.08536317627697337,
+        "retention": 0.5812371853240834
+      },
+      "tone=sad": {
+        "base": 0.3383216409923089,
+        "tone=excited": 0.003600697507650373,
+        "tone=sad": 0.9599717432903186,
+        "tone=excited+tone=sad": 0.177196314226012,
+        "interaction": -0.4480544855796481,
+        "retention": -0.2591897373951622
+      }
+    },
+    {
+      "text": 1,
+      "A": "pace=fast",
+      "B": "tone=sad",
+      "intact": {
+        "base": 1.0,
+        "pace=fast": 1.0,
+        "tone=sad": 1.0,
+        "pace=fast+tone=sad": 1.0
+      },
+      "pace=fast": {
+        "base": 1.0029524840239126,
+        "pace=fast": 1.3655535130718954,
+        "tone=sad": 0.8936458674378842,
+        "pace=fast+tone=sad": 1.254449034054297,
+        "interaction": -0.0017978624315699854,
+        "retention": 0.6935902821089459
+      },
+      "tone=sad": {
+        "base": 0.3383216409923089,
+        "pace=fast": 0.007653139233796793,
+        "tone=sad": 0.9599717432903186,
+        "pace=fast+tone=sad": 0.10676471377424547,
+        "interaction": -0.522538527757561,
+        "retention": -0.3724875558808458
+      }
+    }
+  ]
+}

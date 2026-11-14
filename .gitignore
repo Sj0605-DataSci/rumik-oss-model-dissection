@@ -10,3 +10,17 @@ vllm-plugin/commandr_reference.py
 __pycache__/
 *.pyc
 *.egg-info/
+
+# --- interp study: large / regenerable artefacts ---
+interp/acts*/
+interp/**/*.pt
+!interp/q13/male_patch.pt
+interp/**/*.wav
+!interp/demos/*.wav
+interp/**/*.log
+interp/q13/queue/
+interp/q13/done/
+interp/q13/staged/
+refs/
+rumik-oss-1-male/
+social/html/
