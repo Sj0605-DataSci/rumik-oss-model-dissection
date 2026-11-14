@@ -11,27 +11,31 @@ Assets in this folder:
 
 ## LinkedIn (attach `linkedin_carousel.pdf`, and optionally `x/voice_male.mp4` as a comment)
 
-I gave an all-female text-to-speech model a male voice by editing 4,096 numbers. No fine-tuning, no gradients.
+I gave an all-female text-to-speech model a male voice by editing 4,096 numbers. No fine-tuning, no gradients. And you can try it now.
 
-rumik.ai open-sourced rumik-oss-1, a 3B Indic TTS model with four built-in voices (Ira, Aisha, Siya, Zoya), all female. I wanted to know where, inside the network, a voice is actually decided. So I took it apart.
+rumik.ai open-sourced rumik-oss-1, a 3B Indic TTS model with four built-in voices (Ira, Aisha, Siya, Zoya), all female. I wanted to know where, inside the network, a voice actually gets decided. So I took it apart on a DGX Spark.
 
 What I found:
 
-→ A sparse autoencoder on layer 19 has a clean feature for each speaker. Turn up the "Aisha" feature while the prompt says "Ira", and the voice becomes Aisha (an external speaker classifier agrees 6/6 times).
+→ One feature per speaker. A sparse autoencoder on layer 19 has a clean feature for each voice. Turn up the "Aisha" feature while the prompt still says "Ira", and the voice becomes Aisha (an external speaker classifier agrees 6/6 times).
 
-→ About 16 of the model's 576 attention heads, mostly in layer 15, carry 82% of the speaker identity. Delete just 8 of them and the model still talks perfectly but no longer knows whose voice to use: P(Zoya) drops from 0.91 to 0.19, below chance. Deleting 8 random heads does nothing.
+→ About 16 attention heads decide whose voice you hear. Out of 576 heads, roughly 16, mostly in layer 15, carry 82% of speaker identity. Delete just 8 and the model still speaks perfectly but forgets who it is: P(Zoya) falls from 0.91 to 0.19, below chance. Deleting 8 random heads changes nothing.
 
-→ Emotion sits on a 2-D plane (93% of the variation): an arousal axis and an "angry" axis. Arousal turns out to be mostly tempo; "excited" and "fast" point almost the same way.
+→ Emotion lives on a 2-D plane. Two axes explain 93% of tone variation: arousal and an "angry" axis. Arousal turns out to be mostly tempo; "excited" and "fast" point almost the same way.
 
-→ Then the fun part. Directions learned from the four female voices could only push pitch down to about 165 Hz. So I made male versions of real clips with a vocoder, ran them through the model's own audio codec, and measured how the model's activations shift. Baking that shift into two layers as a constant gives every voice a male twin: about 108 Hz, a gender classifier at 1.00, words intact. Each voice still sounds like itself, because gender and speaker identity live in separate directions.
+→ The male voice. Directions learned from the four female voices could only push pitch down to about 165 Hz. So I made male versions of real clips with a vocoder, ran them through the model's own audio codec, and measured how its activations shift. Baking that shift into two layers as a constant gives every voice a male twin: about 108 Hz, a gender classifier at 1.00, words intact. Each voice still sounds like itself, because gender and speaker identity live in separate directions.
 
-Still open: tying the new voice to a new name ("Arjun:") didn't work in the 8 tries I gave it.
+Try it yourself. The patched model is on Hugging Face; one line switches voices:
+model.set_voice("male")   # or None for the original voices
 
-Independent research on an open model, not affiliated with rumik.ai. Model license: CC-BY-NC.
-Code and data: https://github.com/Sj0605-DataSci/rumik-oss-model-dissection
-Try the male voices: https://huggingface.co/Sanyam0605/rumik-oss-1-male
+🤗 Model: https://huggingface.co/Sanyam0605/rumik-oss-1-male
+💻 Code, results and audio demos: https://github.com/Sj0605-DataSci/rumik-oss-model-dissection/tree/main/interp
 
-#interpretability #TTS #speech #AI #opensource
+Still open: tying the new voice to a new name ("Arjun:") didn't work in the 8 tries I gave it. Ideas welcome.
+
+Independent research on an open model, not affiliated with rumik.ai. Built on rumik-ai/rumik-oss-1 (CC-BY-NC 4.0, non-commercial use).
+
+#interpretability #TTS #speech #AI #opensource #mechanisticinterpretability
 
 ---
 
