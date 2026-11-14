@@ -1,0 +1,528 @@
+{
+  "layer": 1,
+  "cv_acc": 0.9940093564217957,
+  "speakers": [
+    "Aisha",
+    "Ira",
+    "Siya",
+    "Zoya"
+  ],
+  "experiments": {
+    "to_zoya": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.977,
+          "Siya": 0.005,
+          "Zoya": 0.011
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.1": {
+        "p": {
+          "Aisha": 0.015,
+          "Ira": 0.883,
+          "Siya": 0.024,
+          "Zoya": 0.078
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.2": {
+        "p": {
+          "Aisha": 0.024,
+          "Ira": 0.617,
+          "Siya": 0.044,
+          "Zoya": 0.315
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 5,
+          "Siya": 0,
+          "Zoya": 1
+        }
+      },
+      "0.3": {
+        "p": {
+          "Aisha": 0.014,
+          "Ira": 0.31,
+          "Siya": 0.129,
+          "Zoya": 0.548
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 2,
+          "Siya": 0,
+          "Zoya": 4
+        }
+      },
+      "0.4": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.057,
+          "Siya": 0.064,
+          "Zoya": 0.873
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 0,
+          "Siya": 0,
+          "Zoya": 6
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.02,
+          "Siya": 0.029,
+          "Zoya": 0.944
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 0,
+          "Siya": 0,
+          "Zoya": 6
+        }
+      }
+    },
+    "to_aisha": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.977,
+          "Siya": 0.005,
+          "Zoya": 0.011
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.1": {
+        "p": {
+          "Aisha": 0.075,
+          "Ira": 0.88,
+          "Siya": 0.025,
+          "Zoya": 0.02
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.2": {
+        "p": {
+          "Aisha": 0.341,
+          "Ira": 0.617,
+          "Siya": 0.022,
+          "Zoya": 0.021
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.3": {
+        "p": {
+          "Aisha": 0.778,
+          "Ira": 0.191,
+          "Siya": 0.019,
+          "Zoya": 0.012
+        },
+        "argmax": {
+          "Aisha": 5,
+          "Ira": 1,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.4": {
+        "p": {
+          "Aisha": 0.962,
+          "Ira": 0.028,
+          "Siya": 0.006,
+          "Zoya": 0.005
+        },
+        "argmax": {
+          "Aisha": 6,
+          "Ira": 0,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.99,
+          "Ira": 0.005,
+          "Siya": 0.002,
+          "Zoya": 0.003
+        },
+        "argmax": {
+          "Aisha": 6,
+          "Ira": 0,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      }
+    },
+    "to_siya": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.977,
+          "Siya": 0.005,
+          "Zoya": 0.011
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.1": {
+        "p": {
+          "Aisha": 0.023,
+          "Ira": 0.892,
+          "Siya": 0.054,
+          "Zoya": 0.031
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.2": {
+        "p": {
+          "Aisha": 0.043,
+          "Ira": 0.607,
+          "Siya": 0.236,
+          "Zoya": 0.115
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 5,
+          "Siya": 1,
+          "Zoya": 0
+        }
+      },
+      "0.3": {
+        "p": {
+          "Aisha": 0.032,
+          "Ira": 0.18,
+          "Siya": 0.672,
+          "Zoya": 0.116
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 1,
+          "Siya": 5,
+          "Zoya": 0
+        }
+      },
+      "0.4": {
+        "p": {
+          "Aisha": 0.019,
+          "Ira": 0.059,
+          "Siya": 0.878,
+          "Zoya": 0.044
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 0,
+          "Siya": 6,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.009,
+          "Siya": 0.934,
+          "Zoya": 0.05
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 0,
+          "Siya": 6,
+          "Zoya": 0
+        }
+      }
+    },
+    "pace_fast": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.977,
+          "Siya": 0.005,
+          "Zoya": 0.011
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.1": {
+        "p": {
+          "Aisha": 0.009,
+          "Ira": 0.969,
+          "Siya": 0.01,
+          "Zoya": 0.012
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.2": {
+        "p": {
+          "Aisha": 0.006,
+          "Ira": 0.983,
+          "Siya": 0.004,
+          "Zoya": 0.007
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.3": {
+        "p": {
+          "Aisha": 0.003,
+          "Ira": 0.989,
+          "Siya": 0.002,
+          "Zoya": 0.006
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.4": {
+        "p": {
+          "Aisha": 0.004,
+          "Ira": 0.986,
+          "Siya": 0.003,
+          "Zoya": 0.007
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.003,
+          "Ira": 0.987,
+          "Siya": 0.003,
+          "Zoya": 0.008
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      }
+    },
+    "sad": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.977,
+          "Siya": 0.005,
+          "Zoya": 0.011
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.1": {
+        "p": {
+          "Aisha": 0.006,
+          "Ira": 0.978,
+          "Siya": 0.007,
+          "Zoya": 0.009
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.2": {
+        "p": {
+          "Aisha": 0.006,
+          "Ira": 0.902,
+          "Siya": 0.081,
+          "Zoya": 0.011
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.3": {
+        "p": {
+          "Aisha": 0.017,
+          "Ira": 0.79,
+          "Siya": 0.12,
+          "Zoya": 0.073
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.4": {
+        "p": {
+          "Aisha": 0.046,
+          "Ira": 0.784,
+          "Siya": 0.132,
+          "Zoya": 0.037
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.014,
+          "Ira": 0.914,
+          "Siya": 0.069,
+          "Zoya": 0.003
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      }
+    },
+    "excited": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.007,
+          "Ira": 0.977,
+          "Siya": 0.005,
+          "Zoya": 0.011
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.1": {
+        "p": {
+          "Aisha": 0.012,
+          "Ira": 0.971,
+          "Siya": 0.007,
+          "Zoya": 0.01
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.2": {
+        "p": {
+          "Aisha": 0.01,
+          "Ira": 0.967,
+          "Siya": 0.007,
+          "Zoya": 0.017
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.3": {
+        "p": {
+          "Aisha": 0.044,
+          "Ira": 0.893,
+          "Siya": 0.019,
+          "Zoya": 0.044
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.4": {
+        "p": {
+          "Aisha": 0.047,
+          "Ira": 0.864,
+          "Siya": 0.021,
+          "Zoya": 0.067
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.189,
+          "Ira": 0.583,
+          "Siya": 0.109,
+          "Zoya": 0.119
+        },
+        "argmax": {
+          "Aisha": 1,
+          "Ira": 4,
+          "Siya": 0,
+          "Zoya": 1
+        }
+      }
+    }
+  }
+}

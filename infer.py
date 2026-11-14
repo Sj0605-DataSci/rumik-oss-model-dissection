@@ -92,6 +92,7 @@ class RumikTTS:
             end = output_ids.index(self.audio_end_id, start)
         except ValueError:
             end = len(output_ids)
+        self.last_ids = torch.tensor(output_ids[: end + 1])  # prompt + audio (+ </audio>), used by interp/capture_acts.py
         n_audio_tokens = end - start
         gen_wall_s = t.delta("gen_start", "gen_end")
 

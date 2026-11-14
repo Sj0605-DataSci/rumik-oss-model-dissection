@@ -1,0 +1,244 @@
+{
+  "layer": 1,
+  "cv_acc": 0.9861306744047958,
+  "speakers": [
+    "Aisha",
+    "Ira",
+    "Siya",
+    "Zoya"
+  ],
+  "experiments": {
+    "to_zoya": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.019,
+          "Ira": 0.931,
+          "Siya": 0.01,
+          "Zoya": 0.04
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.25": {
+        "p": {
+          "Aisha": 0.011,
+          "Ira": 0.392,
+          "Siya": 0.013,
+          "Zoya": 0.585
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 2,
+          "Siya": 0,
+          "Zoya": 4
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.151,
+          "Ira": 0.009,
+          "Siya": 0.011,
+          "Zoya": 0.829
+        },
+        "argmax": {
+          "Aisha": 1,
+          "Ira": 0,
+          "Siya": 0,
+          "Zoya": 5
+        }
+      },
+      "1.0": {
+        "p": {
+          "Aisha": 0.217,
+          "Ira": 0.111,
+          "Siya": 0.032,
+          "Zoya": 0.641
+        },
+        "argmax": {
+          "Aisha": 1,
+          "Ira": 1,
+          "Siya": 0,
+          "Zoya": 4
+        }
+      }
+    },
+    "pace_slow": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.019,
+          "Ira": 0.931,
+          "Siya": 0.01,
+          "Zoya": 0.04
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.25": {
+        "p": {
+          "Aisha": 0.013,
+          "Ira": 0.961,
+          "Siya": 0.014,
+          "Zoya": 0.013
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.046,
+          "Ira": 0.854,
+          "Siya": 0.071,
+          "Zoya": 0.029
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "1.0": {
+        "p": {
+          "Aisha": 0.274,
+          "Ira": 0.038,
+          "Siya": 0.145,
+          "Zoya": 0.543
+        },
+        "argmax": {
+          "Aisha": 1,
+          "Ira": 0,
+          "Siya": 0,
+          "Zoya": 5
+        }
+      }
+    },
+    "pace_fast": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.019,
+          "Ira": 0.931,
+          "Siya": 0.01,
+          "Zoya": 0.04
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.25": {
+        "p": {
+          "Aisha": 0.008,
+          "Ira": 0.967,
+          "Siya": 0.006,
+          "Zoya": 0.019
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.042,
+          "Ira": 0.801,
+          "Siya": 0.063,
+          "Zoya": 0.094
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "1.0": {
+        "p": {
+          "Aisha": 0.027,
+          "Ira": 0.004,
+          "Siya": 0.307,
+          "Zoya": 0.663
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 0,
+          "Siya": 1,
+          "Zoya": 5
+        }
+      }
+    },
+    "sad": {
+      "0.0": {
+        "p": {
+          "Aisha": 0.019,
+          "Ira": 0.931,
+          "Siya": 0.01,
+          "Zoya": 0.04
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.25": {
+        "p": {
+          "Aisha": 0.035,
+          "Ira": 0.78,
+          "Siya": 0.114,
+          "Zoya": 0.071
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 6,
+          "Siya": 0,
+          "Zoya": 0
+        }
+      },
+      "0.5": {
+        "p": {
+          "Aisha": 0.226,
+          "Ira": 0.376,
+          "Siya": 0.338,
+          "Zoya": 0.06
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 4,
+          "Siya": 2,
+          "Zoya": 0
+        }
+      },
+      "1.0": {
+        "p": {
+          "Aisha": 0.017,
+          "Ira": 0.0,
+          "Siya": 0.395,
+          "Zoya": 0.588
+        },
+        "argmax": {
+          "Aisha": 0,
+          "Ira": 0,
+          "Siya": 2,
+          "Zoya": 4
+        }
+      }
+    }
+  }
+}
