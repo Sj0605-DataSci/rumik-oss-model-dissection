@@ -20,10 +20,10 @@ Listen first: [`demos/`](demos/) has before/after clips, and [`../social/out/`](
 | Can weight editing create a male voice? | Yes. A 4,096-number patch gives every voice a male twin (~108 Hz, P(male) 1.00, WER ≈ 0) while keeping identity. | `q13/` |
 
 ## Use the male voice
+On Hugging Face: [Sanyam0605/rumik-oss-1-male](https://huggingface.co/Sanyam0605/rumik-oss-1-male).
 ```python
-# build the model folder once (links the original weights): python interp/q13/make_male_model.py
 from transformers import AutoModelForCausalLM
-model = AutoModelForCausalLM.from_pretrained("rumik-oss-1-male", trust_remote_code=True, dtype="bfloat16").cuda().eval()
+model = AutoModelForCausalLM.from_pretrained("Sanyam0605/rumik-oss-1-male", trust_remote_code=True, dtype="bfloat16").cuda().eval()
 model.set_voice("male")      # or None for the original voices; strength=1.5 for deeper
 ```
 Or apply the 18 KB patch to stock rumik-oss-1 with `q13/rumik_male.py` (`load_rumik_male("rumik-oss-1")`).

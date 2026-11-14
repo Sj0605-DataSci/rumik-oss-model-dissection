@@ -29,6 +29,7 @@ Still open: tying the new voice to a new name ("Arjun:") didn't work in the 8 tr
 
 Independent research on an open model, not affiliated with rumik.ai. Model license: CC-BY-NC.
 Code and data: https://github.com/Sj0605-DataSci/rumik-oss-model-dissection
+Try the male voices: https://huggingface.co/Sanyam0605/rumik-oss-1-male
 
 #interpretability #TTS #speech #AI #opensource
 
@@ -75,3 +76,4 @@ Bake it into two MLP layers as a constant: every voice gets a male twin.
 Still open: binding the new voice to a new name ("Arjun:") through those layer-15 heads didn't work yet.
 
 Independent work on an open model (not affiliated with rumik.ai). Code: https://github.com/Sj0605-DataSci/rumik-oss-model-dissection
+Model: https://huggingface.co/Sanyam0605/rumik-oss-1-male
